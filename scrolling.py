@@ -1,9 +1,10 @@
 #
 # Scrolling Demo
-#
+# Devs: Chelsea, Philip
 #
 
 import time
+import random
 from graphics import *
 
 # The size of the level (in tiles)
@@ -12,13 +13,23 @@ LEVEL_HEIGHT = 50
 
 # The size of the viewport (in tiles)
 VIEWPORT_WIDTH = 21
-VIEWPORT_HEIGHT = 21   
+VIEWPORT_HEIGHT = 21
 
 # The size of the window (in pixels)
 TILE_SIZE = 24
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
 WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
+def screen_pos (x,y):
+    return (x*TILE_SIZE+10,y*TILE_SIZE+10)
+
+def screen_pos_index (index):
+    x = index % LEVEL_WIDTH
+    y = (index - x) / LEVEL_WIDTH
+    return screen_pos(x,y)
+
+def index (x,y):
+    return x + (y*LEVEL_WIDTH)
 
 
 # The representation of data in the level array
@@ -26,7 +37,6 @@ WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 # 1 grass   (player can be on this)
 # 2 tree    (player cannot be on this)
 
-import random
 
 def create_random_level ():
     level = [0] * 2500
@@ -36,23 +46,38 @@ def create_random_level ():
         level[random.randint(0,2499)] = 2
     return level
 
-
+# 0 empty
+# 1 grass
+# 2 tree
+# 3 rat
 
 def create_screen (level,window,x,y):
-    # WRITE ME: take a level description and a window
-    # and initial tile coordingates (x,y) representing the tile in the 
-    # level array to display smack in the middle of the
-    # window, and fills in the window and presumably
-    # returns something that you can use later on to
-    # modify what's on the screen. (What that is is
-    # up to you.)
-    # 
-    # You can use the create_screen function from
-    # your Lode Runner game as inspiration
-    pass
+    screen = []
+    android = 't_android.gif'
+    grass = 'grass.gif'
+    tree = 'tree.gif'
+    rat = 'rat.gif'
 
+    def image (sx,sy,what):
+        return Image(Point(sx+TILE_SIZE/2,sy+TILE_SIZE/2),what)
 
+    screen.append(level[index(x,y)])
 
+    for i in range(1,11):
+        for j in range(1,11):
+            screen.append(level[index(x+i,y+i)])
+            screen.insert(0,level[index(x-i,y-i)])
+
+    for (ind,cell) in enumerate(screen):
+        if cell != 0:
+            (sx,sy) = screen_pos_index(ind)
+            if cell == 1:
+                elt = image(sx,sy,grass)
+            elif cell == 2:
+                elt = image(sx,sy,tree)
+            elif cell == 3:
+                elt = image(sx,sy,rat)
+            elt.draw(window)
 
 # Player is created by Player(x,y,window,level,scr)
 #   where (x,y) is the initial position of the player
