@@ -31,12 +31,11 @@ def screen_pos_index (index):
 def index (x,y):
     return x + (y*LEVEL_WIDTH)
 
-
 # The representation of data in the level array
 # 0 empty   (player can be on this)
 # 1 grass   (player can be on this)
 # 2 tree    (player cannot be on this)
-
+# 3 rat     (player cannot be this)
 
 def create_random_level ():
     level = [0] * 2500
@@ -46,14 +45,8 @@ def create_random_level ():
         level[random.randint(0,2499)] = 2
     return level
 
-# 0 empty
-# 1 grass
-# 2 tree
-# 3 rat
-
 def create_screen (level,window,x,y):
     screen = []
-    android = 't_android.gif'
     grass = 'grass.gif'
     tree = 'tree.gif'
     rat = 'rat.gif'
@@ -68,6 +61,7 @@ def create_screen (level,window,x,y):
             screen.append(level[index(x+i,y+i)])
             screen.insert(0,level[index(x-i,y-i)])
 
+    print level
     for (ind,cell) in enumerate(screen):
         if cell != 0:
             (sx,sy) = screen_pos_index(ind)
@@ -104,9 +98,6 @@ class Player (object):
         # window can refresh
         self._window.update()
 
-
-
-
 # The event queue
 # There should be no need to change this
 
@@ -137,16 +128,17 @@ class EventQueue (object):
         for entry in self._contents:
             entry[0] -= 1
 
-
-
-
 # A simple class to register a "checking input from the player" event
 
 MOVE = {
     'Left': (-1,0),
+    'a' : (-1,0),
     'Right': (1,0),
+    'd' : (1,0),
     'Up' : (0,-1),
-    'Down' : (0,1)
+    'w' : (0,-1),
+    'Down' : (0,1),
+    's' : (0,1)
 }
 
 class CheckInput (object):
@@ -166,11 +158,7 @@ class CheckInput (object):
             self._player.move(dx,dy)
         q.enqueue(1,self)
 
-        
-        
-
 def main ():
-
     window = GraphWin("Scrolling Demo", 
                       WINDOW_WIDTH, WINDOW_HEIGHT,
                       autoflush=False)
