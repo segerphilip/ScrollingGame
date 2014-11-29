@@ -24,8 +24,8 @@ def screen_pos (x,y):
     return (x*TILE_SIZE+10,y*TILE_SIZE+10)
 
 def screen_pos_index (index):
-    x = index % LEVEL_WIDTH
-    y = (index - x) / LEVEL_WIDTH
+    x = index % VIEWPORT_WIDTH
+    y = (index - x) / VIEWPORT_WIDTH
     return screen_pos(x,y)
 
 def index (x,y):
@@ -45,6 +45,16 @@ def create_random_level ():
         level[random.randint(0,2499)] = 2
     return level
 
+# def read_level (num):
+#     screen = open('Levels/level' + str(num) + '.txt')
+#     lines = []
+#     for line in screen:
+#         for ch in line:
+#             if ch != '\n':
+#                 ch = int(ch)
+#                 lines.append(ch)
+#     return lines
+
 def create_screen (level,window,x,y):
     screen = []
     grass = 'grass.gif'
@@ -54,14 +64,17 @@ def create_screen (level,window,x,y):
     def image (sx,sy,what):
         return Image(Point(sx+TILE_SIZE/2,sy+TILE_SIZE/2),what)
 
-    screen.append(level[index(x,y)])
+    # screen.append(level[index(x,y)])
 
-    for i in range(1,11):
-        for j in range(1,11):
-            screen.append(level[index(x+i,y+i)])
-            screen.insert(0,level[index(x-i,y-i)])
+    # for i in range(0,10):
+    #     for j in range(0,10):
+    #         screen.append(level[index(x+j,y+i)])
+    #         screen.insert(0,level[index(x-j,y-i)])
 
-    print level
+    for i in range(y-10,y+11):
+        for j in range(x-10,x+11):
+            screen.append(level[index(j,i)])
+
     for (ind,cell) in enumerate(screen):
         if cell != 0:
             (sx,sy) = screen_pos_index(ind)
@@ -72,7 +85,7 @@ def create_screen (level,window,x,y):
             elif cell == 3:
                 elt = image(sx,sy,rat)
             elt.draw(window)
-
+    
 # Player is created by Player(x,y,window,level,scr)
 #   where (x,y) is the initial position of the player
 #   in the level, window is the window created by
@@ -82,8 +95,12 @@ def create_screen (level,window,x,y):
 
 class Player (object):
     def __init__ (self,x,y,window,level,scr):
-        self._pic = "t_android.gif"    # this might be useful
-        self._window = window  # you may not need all of these, but they're here anyway
+        (sx,sy) = screen_pos(x,y)
+        self._pic = 't_android.gif'
+        # self._img = Image(Point(sx+TILE_SIZE/2,sy+TILE_SIZE/2+2),self._pic)
+        self._img = Image(Point(x+TILE_SIZE/2,y+TILE_SIZE/2+2),self._pic)
+        self._window = window
+        self._img.draw(window)
         self._level = level
         self._screen = scr
         self._x = x
@@ -94,6 +111,11 @@ class Player (object):
         # calculate new position:
         tx = self._x + dx
         ty = self._y + dy
+        if tx >= 0 and ty >= 0 and tx < LEVEL_WIDTH and ty < LEVEL_HEIGHT:
+            if self._level[index(tx,ty)] == 0:
+                self._x = tx
+                self._y = ty
+                self._img.move(dx*TILE_SIZE,dy*TILE_SIZE)
         # make sure you call this when there is movement so that the
         # window can refresh
         self._window.update()
@@ -163,6 +185,9 @@ def main ():
                       WINDOW_WIDTH, WINDOW_HEIGHT,
                       autoflush=False)
 
+    # num = raw_input('Which level? ')
+
+    # level = read_level(num)
     level = create_random_level()
 
     # initial "center" of the screen is (25,25) in the level array
