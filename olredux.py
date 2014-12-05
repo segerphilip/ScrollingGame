@@ -29,6 +29,12 @@ WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 # Pixel size of the panel on the right where you can display stuff
 WINDOW_RIGHTPANEL = 200
 
+RAT_DELAY = 10
+
+MOVES = [(1,0), (-1,0),
+         (0,1), (0,-1),
+         (0,0)]
+
 def screen_pos (x,y):
     return (x*TILE_SIZE,y*TILE_SIZE)
 
@@ -156,8 +162,17 @@ class Character (Thing):
     # to enable movement
 
     def move (self,dx,dy):
-        # WRITE ME!
-        pass   
+        tx = self._x + dx
+        ty = self._y + dy
+        if tx > 1 and ty > 1 and tx < LEVEL_WIDTH and ty < LEVEL_HEIGHT:
+            if self._screen.tile(tx,ty) != 2:
+                for thing in self._screen._things:
+                    if thing._x == tx and thing._y == ty and not thing.is_walkable():
+                        return
+                self._x = tx
+                self._y = ty
+                self._sprite.move(dx*TILE_SIZE,dy*TILE_SIZE)
+        self._screen._window.update()
 
     def is_character (self):
         return True
@@ -194,11 +209,10 @@ class Rat (Character):
     # this gets called from event queue when the time is right
 
     def event (self,q):
-        # WRITE ME!
         log("event for "+str(self))
-        
-        
-
+        x,y = random.choice(MOVES)
+        self.move(x,y)
+        q.enqueue(RAT_DELAY,self)
 
 #
 # The Player character
@@ -224,21 +238,25 @@ class Player (Character):
         tx = self._x + dx
         ty = self._y + dy
         if tx > 1 and ty > 1 and tx < LEVEL_WIDTH and ty < LEVEL_HEIGHT:
-            self._x = tx
-            self._y = ty
-            self._sprite.move(dx*TILE_SIZE,dy*TILE_SIZE)
-        if tx > 11 and tx < 49 and ty > 11 and ty < 49:
-            self._screen.scroll(dx,dy)
-            self._screen.redraw()
-        if (tx < 11 or tx > 49) and (ty < 11 or ty > 49):
-            pass
-        elif (tx < 11 or tx > 49) and dy != 0:
-            self._screen.scroll(dx,dy)
-            self._screen.redraw()
-        elif (ty < 11 or ty > 49) and dx != 0:
-            self._screen.scroll(dx,dy)
-            self._screen.redraw()
-        self._screen._window.update()
+            if self._screen.tile(tx,ty) != 2:
+                for thing in self._screen._things:
+                    if thing._x == tx and thing._y == ty and not thing.is_walkable():
+                        return
+                self._x = tx
+                self._y = ty
+                self._sprite.move(dx*TILE_SIZE,dy*TILE_SIZE)
+                if tx > 11 and tx < 40 and ty > 11 and ty < 40:
+                    self._screen.scroll(dx,dy)
+                    self._screen.redraw()
+                if (tx < 11 or tx > 40) and (ty < 11 or ty > 40):
+                    pass
+                elif (tx < 11 or tx > 40) and dy != 0:
+                    self._screen.scroll(dx,dy)
+                    self._screen.redraw()
+                elif (ty < 11 or ty > 40) and dx != 0:
+                    self._screen.scroll(dx,dy)
+                    self._screen.redraw()
+            self._screen._window.update()
 
 #############################################################
 # 

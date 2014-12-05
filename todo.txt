@@ -1,0 +1,8 @@
+make all the sprites
+make the world
+define basic game mechanic
+	popularity bar
+	world interaction
+	npc interaction
+
+fix scrolling - ask R
