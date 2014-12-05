@@ -5,4 +5,49 @@ define basic game mechanic
 	world interaction
 	npc interaction
 
-fix scrolling - ask R
+
+Map:
+0 - blank/floor
+1 - wall
+2 - lockers
+3 - door
+4 - stairs
+
+Things:
+guitar
+	mobile thing
+	learn
+	play it for people
+
+chemical1-3
+	mobile
+	collect 3
+	can mix at chem station
+	--> become drugs
+		can sell to pop kids (increase confidence)
+
+chem desk
+	not mobile
+	can use once all chemicals are collected
+
+benchpress
+	not mobile
+	use to get swoll (increase confidence)
+
+fire extinguisher
+	spray people with it
+	spray pop kid (lose confidence)
+	spray principal (gain confidence)
+
+Characters:
+Player
+Pop girl
+Pop guy
+Principal
+Professor - random movement in classroom
+Random students
+
+Controls:
+arrow(wasd) move
+enter/space = select
+shift = drop
