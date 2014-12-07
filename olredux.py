@@ -19,7 +19,7 @@ VIEWPORT_WIDTH = 21
 VIEWPORT_HEIGHT = 21   
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 24
+TILE_SIZE = 40
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
@@ -27,8 +27,6 @@ WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
 # Pixel size of the panel on the right where you can display stuff
 WINDOW_RIGHTPANEL = 200
-
-RAT_DELAY = 10
 
 def screen_pos (x,y):
     return (x*TILE_SIZE,y*TILE_SIZE)
@@ -79,6 +77,15 @@ def create_panel (window):
     fg.setFill("red")
     fg.draw(window)
 
+def read_level (num):
+    screen = open('Levels/level' + str(num) + '.txt')
+    lines = []
+    for line in screen:
+        for ch in line:
+            if ch != '\n':
+                ch = int(ch)
+                lines.append(ch)
+    return lines
 
 #
 # The main function
@@ -90,6 +97,8 @@ def create_panel (window):
 # changes
 #
 def main ():
+    school = read_level(0)
+
     window = GraphWin("Olinland Redux", 
                       WINDOW_WIDTH+WINDOW_RIGHTPANEL, WINDOW_HEIGHT,
                       autoflush=False)

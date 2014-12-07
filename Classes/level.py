@@ -9,7 +9,7 @@ VIEWPORT_WIDTH = 21
 VIEWPORT_HEIGHT = 21   
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 24
+TILE_SIZE = 40
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
