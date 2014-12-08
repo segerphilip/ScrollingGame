@@ -16,7 +16,7 @@ class NPC (Character):
     def __init__ (self,name,desc):
         Character.__init__(self,name,desc)
         log("Rat.__init__ for "+str(self))
-        self._pic = 'rat.gif'
+        self._pic = 'Resources/rat.gif'
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._direction = random.randrange(4)
 

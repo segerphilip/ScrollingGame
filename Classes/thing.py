@@ -10,14 +10,14 @@ VIEWPORT_WIDTH = 21
 VIEWPORT_HEIGHT = 21   
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 24
+TILE_SIZE = 50
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
 WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
 # Pixel size of the panel on the right where you can display stuff
-WINDOW_RIGHTPANEL = 200
+WINDOW_RIGHTPANEL = 100
 
 # A thing is something that can be interacted with and by default
 # is not moveable or walkable over

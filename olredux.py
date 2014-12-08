@@ -19,14 +19,14 @@ VIEWPORT_WIDTH = 21
 VIEWPORT_HEIGHT = 21   
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 40
+TILE_SIZE = 50
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
 WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
 # Pixel size of the panel on the right where you can display stuff
-WINDOW_RIGHTPANEL = 200
+WINDOW_RIGHTPANEL = 100
 
 def screen_pos (x,y):
     return (x*TILE_SIZE,y*TILE_SIZE)
@@ -77,16 +77,6 @@ def create_panel (window):
     fg.setFill("red")
     fg.draw(window)
 
-def read_level (num):
-    screen = open('Levels/level' + str(num) + '.txt')
-    lines = []
-    for line in screen:
-        for ch in line:
-            if ch != '\n':
-                ch = int(ch)
-                lines.append(ch)
-    return lines
-
 #
 # The main function
 # 
@@ -97,8 +87,6 @@ def read_level (num):
 # changes
 #
 def main ():
-    school = read_level(0)
-
     window = GraphWin("Olinland Redux", 
                       WINDOW_WIDTH+WINDOW_RIGHTPANEL, WINDOW_HEIGHT,
                       autoflush=False)
@@ -111,13 +99,15 @@ def main ():
 
     q = EventQueue()
 
-    ChemTable().materialize(scr,20,20)
+    # ChemTable().materialize(scr,20,20)
     NPC("Pinky","A rat").register(q,40).materialize(scr,30,30)
     NPC("Brain","A rat with a big head").register(q,60).materialize(scr,10,30)
 
     create_panel(window)
 
     p = Player("...what's your name, bub?...").materialize(scr,25,25)
+
+    Guitar('guitar','this is guitar').materialize(scr,22,22)
 
     print scr._things
 

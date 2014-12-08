@@ -1,7 +1,6 @@
 make all the sprites
-make the world
 define basic game mechanic
-	popularity bar
+	popularity bar - need to render on screen
 	world interaction
 	npc interaction
 

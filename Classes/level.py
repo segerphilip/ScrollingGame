@@ -9,14 +9,24 @@ VIEWPORT_WIDTH = 21
 VIEWPORT_HEIGHT = 21   
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 40
+TILE_SIZE = 50
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
 WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
 # Pixel size of the panel on the right where you can display stuff
-WINDOW_RIGHTPANEL = 200
+WINDOW_RIGHTPANEL = 100
+
+def read_level (num):
+    screen = open('Levels/level' + str(num) + '.txt')
+    lines = []
+    for line in screen:
+        for ch in line:
+            if ch != '\n':
+                ch = int(ch)
+                lines.append(ch)
+    return lines
 
 #
 # This implements a random level right now. 
@@ -26,11 +36,7 @@ WINDOW_RIGHTPANEL = 200
 class Level (object):
     def __init__ (self):
         size = LEVEL_WIDTH * LEVEL_HEIGHT
-        map = [0] * size
-        for i in range(100):
-            map[random.randrange(size)] = 1
-        for i in range(50):
-            map[random.randrange(size)] = 2
+        map = read_level(0)
         self._map = map
 
     def _pos (self,x,y):

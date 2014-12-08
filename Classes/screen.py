@@ -10,15 +10,22 @@ VIEWPORT_WIDTH = 21
 VIEWPORT_HEIGHT = 21   
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 40
+TILE_SIZE = 50
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
 WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
 # Pixel size of the panel on the right where you can display stuff
-WINDOW_RIGHTPANEL = 200
+WINDOW_RIGHTPANEL = 100
 
+
+# 
+# 0 - floor
+# 1 - wall
+# 2 - lockers
+# 3 - door
+# 4 - stairs
 #
 # A Screen is a representation of the level displayed in the 
 # viewport, with a representation for all the tiles and a 
@@ -60,14 +67,15 @@ class Screen (object):
                 elt = Rectangle(Point(sx,sy),
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
-                    elt.setFill('lightgreen')
-                    elt.setOutline('lightgreen')
+                    elt = Image(Point(sx,sy),'Resources/tiles.gif')
                 if self.tile(x,y) == 1:
-                    elt.setFill('green')
-                    elt.setOutline('green')
-                elif self.tile(x,y) == 2:
-                    elt.setFill('sienna')
-                    elt.setOutline('sienna')
+                    elt = Image(Point(sx,sy),'Resources/grass.gif')
+                if self.tile(x,y) == 2:
+                    elt = Image(Point(sx,sy),'Resources/statue.gif')
+                if self.tile(x,y) == 3:
+                    elt = Image(Point(sx,sy),'Resources/rat.gif')
+                if self.tile(x,y) == 4:
+                    elt = Image(Point(sx,sy),'Resources/tree.gif')
                 elt.draw(window)
 
     # return the tile at a given tile position
@@ -101,14 +109,15 @@ class Screen (object):
                 elt = Rectangle(Point(sx,sy),
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
-                    elt.setFill('lightgreen')
-                    elt.setOutline('lightgreen')
+                    elt = Image(Point(sx,sy),'Resources/tiles.gif')
                 if self.tile(x,y) == 1:
-                    elt.setFill('green')
-                    elt.setOutline('green')
-                elif self.tile(x,y) == 2:
-                    elt.setFill('sienna')
-                    elt.setOutline('sienna')
+                    elt = Image(Point(sx,sy),'Resources/grass.gif')
+                if self.tile(x,y) == 2:
+                    elt = Image(Point(sx,sy),'Resources/statue.gif')
+                if self.tile(x,y) == 3:
+                    elt = Image(Point(sx,sy),'Resources/rat.gif')
+                if self.tile(x,y) == 4:
+                    elt = Image(Point(sx,sy),'Resources/tree.gif')
                 Thing.materialize
                 elt.draw(self._window)
         print self._corner
@@ -118,9 +127,6 @@ class Screen (object):
         dy = (VIEWPORT_HEIGHT-1)/2
         for thing in self._things:
             if thing._x >= self._cx - dx and thing._y >= self._cy - dy and thing._x <= self._cx + dx and thing._y <= self._cy + dy:
-                # (sx,sy) = screen_pos(thing._x,thing._y)
                 self._window.delItem(thing._sprite)
                 thing._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),thing._pic)
                 self.add(thing,thing._x,thing._y)
-                # thing._sprite.draw(self._window)
-                # self._window.redraw()

@@ -7,5 +7,5 @@ from thing import *
 class ChemTable (Thing):
     def __init__ (self):
         Thing.__init__(self,"Olin statue","A statue of F. W. Olin")
-        self._pic = 'statue.gif'
+        self._pic = 'Resources/statue.gif'
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)

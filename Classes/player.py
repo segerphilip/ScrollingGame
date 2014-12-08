@@ -7,8 +7,12 @@ class Player (Character):
     def __init__ (self,name):
         Character.__init__(self,name,"Yours truly")
         log("Player.__init__ for "+str(self))
-        self._pic = 't_android.gif'
+        self._pics = ['Resources/PhilL.gif', 'Resources/Phil.gif', 'Resources/PhilR.gif', 'Resources/Phil.gif']
+        self._ind = 1
+        self._pic = self._pics[self._ind]
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
+        self._confidence = 0
+        self._inventory = []
 
     def is_player (self):
         return True
@@ -21,10 +25,16 @@ class Player (Character):
     # something that does not happen for other characters
 
     def move (self,dx,dy):
+        if self._ind != 3:
+            self._ind += 1
+            self._pic = self._pics[self._ind]
+        else:
+            self._ind = 0
+            self._pic = self._pics[self._ind]
         tx = self._x + dx
         ty = self._y + dy
         if tx > 1 and ty > 1 and tx < LEVEL_WIDTH and ty < LEVEL_HEIGHT:
-            if self._screen.tile(tx,ty) != 2:
+            if self._screen.tile(tx,ty) != 2 and self._screen.tile(tx,ty) != 1:
                 for thing in self._screen._things:
                     if thing._x == tx and thing._y == ty and not thing.is_walkable():
                         return
@@ -35,7 +45,7 @@ class Player (Character):
                     self._screen.scroll(dx,dy)
                     self._screen.redraw()
                 if (tx < 11 or tx > 40) and (ty < 11 or ty > 40):
-                    pass
+                    self._screen.redraw()
                 elif (tx < 11 or tx > 40) and dy != 0:
                     self._screen.scroll(dx,dy)
                     self._screen.redraw()
