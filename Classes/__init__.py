@@ -11,3 +11,10 @@ from screen import *
 from thing import *
 from mobile import *
 from guitar import *
+from chemical import *
+from benchpress import *
+from extinguisher import *
+from popular import *
+from student import *
+from principal import *
+from teacher import *

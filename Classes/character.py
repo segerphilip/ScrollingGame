@@ -1,9 +1,5 @@
 from thing import *
 
-#
-# Characters represent persons and animals and things that move
-# about possibly proactively
-#
 class Character (Thing):
     def __init__ (self,name,desc):
         Thing.__init__(self,name,desc)
@@ -13,9 +9,6 @@ class Character (Thing):
         rect.setFill("red")
         rect.setOutline("red")
         self._sprite = rect
-
-    # A character has a move() method that you should implement
-    # to enable movement
 
     def move (self,dx,dy):
         tx = self._x + dx

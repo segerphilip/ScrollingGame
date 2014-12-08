@@ -38,6 +38,9 @@ class Thing (Root):
     def __str__ (self):
         return "<"+self.name()+">"
 
+    def use (self):
+        print "This thing cannot be used."
+
     # return the sprite for display purposes
     def sprite (self):
         return self._sprite

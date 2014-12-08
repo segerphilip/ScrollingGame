@@ -1,11 +1,3 @@
-############################################################
-#
-# Olinland Redux
-#
-# Scaffolding to the final project for Game Programming
-# Devs: Chelsea, Philip
-#
-
 from Classes import *
 import time
 import random
@@ -39,15 +31,8 @@ def screen_pos_index (index):
 def index (x,y):
     return x + (y*LEVEL_WIDTH)
 
-# A helper function that lets you log information to the console
-# with some timing information. I found this super useful to 
-# debug tricky event-based problems.
-#
 def log (message):
     print time.strftime("[%H:%M:%S]",time.localtime()),message
-
-# A simple event class that checks for user input.
-# It re-enqueues itself after the check.
 
 MOVE = {
     'Left': (-1,0),
@@ -60,10 +45,6 @@ MOVE = {
     's' : (0,1)
 }
 
-#
-# Create the right-side panel that can be used to display interesting
-# information to the player
-#
 def create_panel (window):
     fg = Rectangle(Point(WINDOW_WIDTH+1,-20),
                    Point(WINDOW_WIDTH+WINDOW_RIGHTPANEL+20,WINDOW_HEIGHT+20))
@@ -77,15 +58,6 @@ def create_panel (window):
     fg.setFill("red")
     fg.draw(window)
 
-#
-# The main function
-# 
-# It initializes everything that needs to be initialized
-# Order is important for graphics to display correctly
-# Note that autoflush=False, so we need to explicitly
-# call window.update() to refresh the window when we make
-# changes
-#
 def main ():
     window = GraphWin("Olinland Redux", 
                       WINDOW_WIDTH+WINDOW_RIGHTPANEL, WINDOW_HEIGHT,
@@ -118,8 +90,6 @@ def main ():
         q.dequeue_if_ready()
         # Time unit = 10 milliseconds
         time.sleep(0.01)
-
-
-
+        
 if __name__ == '__main__':
     main()

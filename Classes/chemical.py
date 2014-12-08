@@ -1,18 +1,12 @@
 from mobile import *
 
-class Guitar (Mobile):
+class Chemical (Mobile):
 
 	def __init__ (self,name,desc):
 		Thing.__init__(self,name,desc)
-		self._pic = 'Resources/guitar.gif'
+		self._pic = 'Resources/chemical.gif'
 		self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
 
 	def use (self):
-		# TODO: choose play or learn
-		pass
-
-	def play (self):
-		pass
-
-	def learn (self):
+		# TODO: Get high
 		pass
