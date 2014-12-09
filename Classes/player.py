@@ -41,6 +41,9 @@ class Player (Character):
                 self._x = tx
                 self._y = ty
                 self._sprite.move(dx*TILE_SIZE,dy*TILE_SIZE)
+                # self._screen._window.delItem(self._sprite)
+                # self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
+                # self._screen.add(self,self._x,self._y)
                 if tx > 11 and tx < 40 and ty > 11 and ty < 40:
                     self._screen.scroll(dx,dy)
                     self._screen.redraw()

@@ -7,17 +7,17 @@ LEVEL_HEIGHT = 50
 
 # Tile size of the viewport (through which you view the level)
 VIEWPORT_WIDTH = 21
-VIEWPORT_HEIGHT = 21   
+VIEWPORT_HEIGHT = 21
 
 # Pixel size of a tile (which gives you the size of the window)
-TILE_SIZE = 50
+TILE_SIZE = 24
 
 # Pixel size of the viewport
 WINDOW_WIDTH = TILE_SIZE * VIEWPORT_WIDTH
 WINDOW_HEIGHT = TILE_SIZE * VIEWPORT_HEIGHT
 
 # Pixel size of the panel on the right where you can display stuff
-WINDOW_RIGHTPANEL = 100
+WINDOW_RIGHTPANEL = 200
 
 
 # 
@@ -62,20 +62,20 @@ class Screen (object):
         self._corner = (self._cx-dx,self._cy-dy)
         for y in range(cy-dy,cy+dy+1):
             for x in range(cx-dx,cx+dx+1):
-                sx = (x-(cx-dx)) * TILE_SIZE
-                sy = (y-(cy-dy)) * TILE_SIZE
+                sx = (x-(cx-dx) +1) * TILE_SIZE
+                sy = (y-(cy-dy) +1) * TILE_SIZE
                 elt = Rectangle(Point(sx,sy),
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
                     elt = Image(Point(sx,sy),'Resources/tiles.gif')
                 if self.tile(x,y) == 1:
-                    elt = Image(Point(sx,sy),'Resources/grass.gif')
+                    elt = Image(Point(sx,sy),'Resources/wall.gif')
                 if self.tile(x,y) == 2:
-                    elt = Image(Point(sx,sy),'Resources/statue.gif')
+                    elt = Image(Point(sx,sy),'Resources/lockers.gif')
                 if self.tile(x,y) == 3:
-                    elt = Image(Point(sx,sy),'Resources/rat.gif')
+                    elt = Image(Point(sx,sy),'Resources/door.gif')
                 if self.tile(x,y) == 4:
-                    elt = Image(Point(sx,sy),'Resources/tree.gif')
+                    elt = Image(Point(sx,sy),'Resources/stairs.gif')
                 elt.draw(window)
 
     # return the tile at a given tile position
@@ -104,20 +104,20 @@ class Screen (object):
         self._corner = (self._cx-dx,self._cy-dy)
         for y in range(self._cy-dy,self._cy+dy+1):
             for x in range(self._cx-dx,self._cx+dx+1):
-                sx = (x-(self._cx-dx)) * TILE_SIZE
-                sy = (y-(self._cy-dy)) * TILE_SIZE
+                sx = (x-(self._cx-dx) +1) * TILE_SIZE
+                sy = (y-(self._cy-dy) +1) * TILE_SIZE
                 elt = Rectangle(Point(sx,sy),
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
                     elt = Image(Point(sx,sy),'Resources/tiles.gif')
                 if self.tile(x,y) == 1:
-                    elt = Image(Point(sx,sy),'Resources/grass.gif')
+                    elt = Image(Point(sx,sy),'Resources/wall.gif')
                 if self.tile(x,y) == 2:
-                    elt = Image(Point(sx,sy),'Resources/statue.gif')
+                    elt = Image(Point(sx,sy),'Resources/lockers.gif')
                 if self.tile(x,y) == 3:
-                    elt = Image(Point(sx,sy),'Resources/rat.gif')
+                    elt = Image(Point(sx,sy),'Resources/door.gif')
                 if self.tile(x,y) == 4:
-                    elt = Image(Point(sx,sy),'Resources/tree.gif')
+                    elt = Image(Point(sx,sy),'Resources/stairs.gif')
                 Thing.materialize
                 elt.draw(self._window)
         print self._corner

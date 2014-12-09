@@ -9,6 +9,10 @@ MOVE = {
     's' : (0,1)
 }
 
+VERB = {
+	'u': 'use'
+}
+
 class CheckInput (object):
     def __init__ (self,window,player):
         self._player = player
