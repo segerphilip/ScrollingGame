@@ -62,8 +62,8 @@ class Screen (object):
         self._corner = (self._cx-dx,self._cy-dy)
         for y in range(cy-dy,cy+dy+1):
             for x in range(cx-dx,cx+dx+1):
-                sx = (x-(cx-dx) +1) * TILE_SIZE
-                sy = (y-(cy-dy) +1) * TILE_SIZE
+                sx = (x-(cx-dx) + .5) * TILE_SIZE
+                sy = (y-(cy-dy) + .5) * TILE_SIZE
                 elt = Rectangle(Point(sx,sy),
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
@@ -104,8 +104,8 @@ class Screen (object):
         self._corner = (self._cx-dx,self._cy-dy)
         for y in range(self._cy-dy,self._cy+dy+1):
             for x in range(self._cx-dx,self._cx+dx+1):
-                sx = (x-(self._cx-dx) +1) * TILE_SIZE
-                sy = (y-(self._cy-dy) +1) * TILE_SIZE
+                sx = (x-(self._cx-dx) + .5) * TILE_SIZE
+                sy = (y-(self._cy-dy) + .5) * TILE_SIZE
                 elt = Rectangle(Point(sx,sy),
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
