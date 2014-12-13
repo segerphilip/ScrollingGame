@@ -81,6 +81,13 @@ def main ():
 
     Guitar('guitar','this is guitar').materialize(scr,22,22)
 
+    c1 = Chemical('chem1','smells funny','Resources/chem1.gif').materialize(scr,23,23)
+    c2 = Chemical('chem2','smells funny','Resources/chem2.gif').materialize(scr,23,24)
+    c3 = Chemical('chem3','smells funny','Resources/chem3.gif').materialize(scr,23,25)
+
+    chems = [c1,c2,c3]
+    ChemTable(chems).materialize(scr,30,30)
+
     print scr._things
 
     q.enqueue(1,CheckInput(window,p))

@@ -131,6 +131,6 @@ class Screen (object):
                 thing._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),thing._pic)
                 self.add(thing,thing._x,thing._y)
 
-    def delete (self):
+    def delete (self,thing):
         self._window.delItem(thing._sprite)
         self._things = [x for x in self._things if x is not t]
