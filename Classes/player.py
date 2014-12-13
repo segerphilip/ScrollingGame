@@ -56,3 +56,12 @@ class Player (Character):
                     self._screen.scroll(dx,dy)
                     self._screen.redraw()
             self._screen._window.update()
+
+    def inventory (self):
+        return self._inventory
+
+    def have_thing (self,t):
+        for c in self.inventory():
+            if c is t:
+                return True
+        return False
