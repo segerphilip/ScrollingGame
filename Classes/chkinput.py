@@ -9,8 +9,11 @@ MOVE = {
     's' : (0,1)
 }
 
-VERB = {
-	'u': 'use'
+INV = {
+    '1' : 1,
+    '2' : 2,
+    '3' : 3,
+    '4' : 4
 }
 
 class CheckInput (object):
@@ -23,6 +26,10 @@ class CheckInput (object):
         if key == 'q':
             self._window.close()
             exit(0)
+        if key == 'space':
+            self._player.interact()
+        if key in INV:
+            self._player._inventory[INV[key]].use(self._player)
         if key in MOVE:
             (dx,dy) = MOVE[key]
             self._player.move(dx,dy)

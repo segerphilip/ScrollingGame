@@ -7,11 +7,10 @@ class Mobile (Thing):
 
     def take (self,player):
         player._inventory.append(self)
-        player._screen._window.delItem(self._sprite)
-        self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
+        self._sprite.move(-self._x*TILE_SIZE,-self._y*TILE_SIZE)
         self._x = WINDOW_WIDTH + 10
         self._y = TILE_SIZE*len(player._inventory) + 10
-        player._screen.add(self,self._x,self._y)
+        self._sprite.move(self._x*TILE_SIZE,self._y*TILE_SIZE)
 
     def drop (self,player):
         if self in player._inventory:

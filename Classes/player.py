@@ -57,7 +57,8 @@ class Player (Character):
                     self._screen.redraw()
             self._screen._window.update()
 
-    def take (self):
+    def interact (self):
+# TODO: include people and non-mobile interaction
         for t in self._screen._things:
             if ( (t._x == self._x + 1 or t._x == self._x - 1) and t._y == self._y) or ((t._y == self._y + 1 or t._y == self._y - 1) and t._x == self._x):
                 t.take(self)

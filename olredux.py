@@ -51,8 +51,8 @@ def create_panel (window):
     fg.setFill("darkgray")
     fg.setOutline("darkgray")
     fg.draw(window)
-    fg = Text(Point(WINDOW_WIDTH+100,
-                    30),"Olinland Redux")
+    fg = Text(Point(WINDOW_WIDTH+90,
+                    25),"Prompocolypse")
     fg.setSize(24)
     fg.setStyle("italic")
     fg.setFill("red")
