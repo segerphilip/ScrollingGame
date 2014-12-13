@@ -77,7 +77,7 @@ def main ():
 
     create_panel(window)
 
-    p = Player("...what's your name, bub?...").materialize(scr,25,25)
+    p = Player("P-Dawg").materialize(scr,25,25)
 
     Guitar('guitar','this is guitar').materialize(scr,22,22)
 
