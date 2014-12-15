@@ -26,5 +26,8 @@ class Character (Thing):
     def is_character (self):
         return True
 
+    def is_thing (self):
+        return False
+
     def is_walkable (self):
         return False

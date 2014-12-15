@@ -7,6 +7,6 @@ class Chemical (Mobile):
 		self._pic = pic
 		self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
 
-	def use (self):
-		# TODO: Get high
-		pass
+	# def use (self):
+	# 	# TODO: Get high
+	# 	pass

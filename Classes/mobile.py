@@ -12,6 +12,9 @@ class Mobile (Thing):
         self._x = VIEWPORT_WIDTH+15
         self._y = len(player._inventory) + 15
 
+    def use (self,player):
+        self._screen.delete(self)
+
     # def drop (self,player):
     #     if self in player._inventory:
     #         player._inventory.remove(self)

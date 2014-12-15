@@ -133,4 +133,4 @@ class Screen (object):
 
     def delete (self,thing):
         self._window.delItem(thing._sprite)
-        self._things = [x for x in self._things if x is not t]
+        self._things = [x for x in self._things if x is not thing]

@@ -10,10 +10,10 @@ MOVE = {
 }
 
 INV = {
-    '1' : 1,
-    '2' : 2,
-    '3' : 3,
-    '4' : 4
+    '1' : 0,
+    '2' : 1,
+    '3' : 2,
+    '4' : 3
 }
 
 class CheckInput (object):
@@ -28,7 +28,7 @@ class CheckInput (object):
             exit(0)
         if key == 'space':
             self._player.interact()
-        if key in INV:
+        if key in INV and len(self._player._inventory) >= key:
             self._player._inventory[INV[key]].use(self._player)
         if key in MOVE:
             (dx,dy) = MOVE[key]
