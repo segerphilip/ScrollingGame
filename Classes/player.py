@@ -58,11 +58,15 @@ class Player (Character):
             self._screen._window.update()
 
     def interact (self):
-# TODO: include people and non-mobile interaction
         for t in self._screen._things:
             if ( (t._x == self._x + 1 or t._x == self._x - 1) and t._y == self._y) or ((t._y == self._y + 1 or t._y == self._y - 1) and t._x == self._x):
-                t.take(self)
-                return
+                if t.is_thing():
+                    if t.is_mobile_thing():
+                        t.take(self)
+                        return
+                    t.use(self)
+                if t.is_character():
+                    t.talk(self)
 
     def inventory (self):
         return self._inventory

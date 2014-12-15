@@ -88,8 +88,6 @@ def main ():
     chems = [c1,c2,c3]
     ChemTable(chems).materialize(scr,30,30)
 
-    print scr._things
-
     q.enqueue(1,CheckInput(window,p))
 
     while True:
