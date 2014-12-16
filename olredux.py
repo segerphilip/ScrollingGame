@@ -63,7 +63,7 @@ def main ():
                       WINDOW_WIDTH+WINDOW_RIGHTPANEL, WINDOW_HEIGHT,
                       autoflush=False)
 
-    level = Level()
+    level = Level(0)
     log ("level created")
 
     scr = Screen(level,window,25,25)

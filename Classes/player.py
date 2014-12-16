@@ -1,4 +1,6 @@
 from character import *
+from screen import *
+from level import *
 
 #
 # The Player character
@@ -13,6 +15,8 @@ class Player (Character):
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._confidence = 0
         self._inventory = []
+        self._stairs = False
+        self._leveled = False
 
     def is_player (self):
         return True
@@ -58,6 +62,26 @@ class Player (Character):
             self._screen._window.update()
 
     def interact (self):
+        if (self._x > 20 and self._x < 29) and (self._y > 4 and self._y <= 8):
+            if not self._stairs:
+                self._stairs = True
+                self._leveled = True
+                level1 = Level(1)
+                log ("second level created")
+                self._screen2 = Screen(level1,self._screen._window,self._x,11)
+                self._screen1 = self._screen
+                self._screen = self._screen2
+                self._screen._window.redraw()
+                # self._screen.delete(self)
+                # self._screen.add(self,self._x,self._y)
+                # populate with objects/people
+            else:
+                if self._leveled:
+                    self._screen = self._screen1
+                    self._leveled = False
+                else:
+                    self._screen = self._screen2
+                    self._leveled = True
         for t in self._screen._things:
             if ( (t._x == self._x + 1 or t._x == self._x - 1) and t._y == self._y) or ((t._y == self._y + 1 or t._y == self._y - 1) and t._x == self._x):
                 if t.is_thing():

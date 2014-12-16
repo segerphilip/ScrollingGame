@@ -34,9 +34,9 @@ def read_level (num):
 # implements a specific map -- perhaps of Olin?
 #
 class Level (object):
-    def __init__ (self):
+    def __init__ (self,num):
         size = LEVEL_WIDTH * LEVEL_HEIGHT
-        map = read_level(0)
+        map = read_level(num)
         self._map = map
 
     def _pos (self,x,y):
