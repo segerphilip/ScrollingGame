@@ -31,6 +31,7 @@ class Popular (NPC):
                 player._confidence = player._confidence + 2
                 player.update_confidence()
                 thing.use(player)
+                player._inventory.remove(thing)
                 return
         if player._confidence <5:
             print "I don't talk to losers"

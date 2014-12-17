@@ -1,8 +1,12 @@
 specific things todo (12/13/14):
 1.only redraw things that are in veiwport
 2.determine correct way to draw into inventory
-3.use spacebar for interaction with env
-4.reduce lag
+	correctly undraw and redraw
+3.reduce lag
+4.set up talking with NPC
+	print talking
+5.win screen
+	prom dance
 
 make all the sprites
 define basic game mechanic
