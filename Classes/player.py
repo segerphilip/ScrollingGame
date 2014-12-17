@@ -90,7 +90,7 @@ class Player (Character):
                         return
                     t.use(self)
                 if t.is_character():
-                    t.talk(self)
+                    t.talk()
 
     def update_confidence (self):
         if self._confidence <= 10:

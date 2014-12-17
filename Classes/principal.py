@@ -9,8 +9,8 @@ NPC_DELAY = 30
 
 class Principal (NPC):
 
-    def __init__ (self,name,desc):
-        NPC.__init__(self,name,desc)
+    def __init__ (self,name,desc,player):
+        NPC.__init__(self,name,desc,player)
         log("Principal.__init__ for "+str(self))
         self._pic = 'Resources/principal.gif'
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)

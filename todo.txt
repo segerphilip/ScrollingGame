@@ -8,19 +8,7 @@ specific things todo (12/13/14):
 5.win screen
 	prom dance
 
-make all the sprites
-define basic game mechanic
-	popularity bar - need to render on screen
-	world interaction
-	npc interaction
 
-
-Map:
-0 - blank/floor
-1 - wall
-2 - lockers
-3 - door
-4 - stairs
 
 Things:
 guitar
@@ -28,16 +16,9 @@ guitar
 	learn
 	play it for people
 
-chemical1-3
-	mobile
-	collect 3
-	can mix at chem station
-	--> become drugs
-		can sell to pop kids (increase confidence)
 
-chem desk
-	not mobile
-	can use once all chemicals are collected
+
+
 
 benchpress
 	not mobile

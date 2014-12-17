@@ -10,6 +10,7 @@ class Character (Thing):
         rect.setOutline("red")
         self._sprite = rect
 
+
     def move (self,dx,dy):
         tx = self._x + dx
         ty = self._y + dy

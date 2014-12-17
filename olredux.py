@@ -7,8 +7,8 @@ LEVEL_WIDTH = 50
 LEVEL_HEIGHT = 50
 
 # Tile size of the viewport (through which you view the level)
-VIEWPORT_WIDTH = 21
-VIEWPORT_HEIGHT = 21
+VIEWPORT_WIDTH = 15
+VIEWPORT_HEIGHT = 15
 
 # Pixel size of a tile (which gives you the size of the window)
 TILE_SIZE = 50
@@ -78,13 +78,12 @@ def main ():
 
     q = EventQueue()
 
-    # ChemTable().materialize(scr,20,20)
-    Popular("Pinky","A rat").register(q,40).materialize(scr,30,30)
-    Popular("Brain","A rat with a big head").register(q,60).materialize(scr,10,30)
-
     create_panel(window)
 
     p = Player("P-Dawg").materialize(scr,25,25)
+
+    Popular("Pinky","A rat",p).register(q,40).materialize(scr,30,30)
+    Popular("Brain","A rat with a big head",p).register(q,60).materialize(scr,10,30)
 
     Guitar('guitar','this is guitar').materialize(scr,22,22)
 

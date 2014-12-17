@@ -9,8 +9,8 @@ NPC_DELAY = 30
 
 class Popular (NPC):
 
-    def __init__ (self,name,desc):
-        NPC.__init__(self,name,desc)
+    def __init__ (self,name,desc,player):
+        NPC.__init__(self,name,desc,player)
         log("Popular.__init__ for "+str(self))
         self._pic = 'Resources/girl.gif'
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
@@ -24,19 +24,19 @@ class Popular (NPC):
         # TODO: More interesting things
         pass
 
-    def talk (self,player):
-        for thing in player._inventory:
+    def talk (self):
+        for thing in self._p._inventory:
             if thing.is_drug():
                 print "I'll take that coke! Thanks!"
-                player._confidence = player._confidence + 2
-                player.update_confidence()
-                thing.use(player)
-                player._inventory.remove(thing)
+                self._p._confidence = self._p._confidence + 2
+                self._p.update_confidence()
+                thing.use(self._p)
+                self._p._inventory.remove(thing)
                 return
-        if player._confidence <5:
+        if self._p._confidence <5:
             print "I don't talk to losers"
-        elif player._confidence >= 5 and player._confidence < 10:
+        elif self._p._confidence >= 5 and self._p._confidence < 10:
             print "You're alright I guess"
         else:
             print "Of course I'll go to prom with you!"
-            player._screen.win()
+            self._p._screen.win()

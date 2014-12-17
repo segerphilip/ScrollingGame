@@ -10,13 +10,18 @@ class ChemTable (Thing):
 
     def use (self,player):
         for chem in self._chems:
-        	if not player.have_thing(chem):
-        		self.explosion(player)
-        	player._screen.delete(chem)
+            if not player.have_thing(chem):
+                self.explosion(player)
+                return
+            player._inventory.remove(chem)
+            player._screen.delete(chem)
+        player._confidence = player._confidence + 1
+        player.update_confidence()
         d = Drug('Coke','drugs are... bad?').materialize(player._screen,0,0)
         d.take(player)
 
 
     def explosion (self,player):
-    	print 'You exploded!'
-        pass
+        print 'You exploded!'
+# TODO: Cover player in tar
+        return
