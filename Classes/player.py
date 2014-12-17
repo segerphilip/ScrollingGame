@@ -83,7 +83,7 @@ class Player (Character):
                     self._screen = self._screen2
                     self._leveled = True
         for t in self._screen._things:
-            if ( (t._x == self._x + 1 or t._x == self._x - 1) and t._y == self._y) or ((t._y == self._y + 1 or t._y == self._y - 1) and t._x == self._x):
+            if ((t._x == self._x + 1 or t._x == self._x - 1) and t._y == self._y) or ((t._y == self._y + 1 or t._y == self._y - 1) and t._x == self._x):
                 if t.is_thing():
                     if t.is_mobile_thing():
                         t.take(self)
