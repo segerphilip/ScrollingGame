@@ -77,9 +77,22 @@ class Thing (Root):
     def is_walkable (self):
         return False
 
+    def com (self,message):
+        fg = Rectangle(Point(WINDOW_WIDTH+5,WINDOW_HEIGHT-95),
+                               Point(WINDOW_WIDTH+195,WINDOW_HEIGHT-5))
+        fg.setFill("white")
+        fg.draw(self._screen._window)
+
+        fg = Text(Point(WINDOW_WIDTH+90,
+                    WINDOW_HEIGHT-40),message)
+        fg.setSize(12)
+        fg.setFill("black")
+        fg.draw(self._screen._window)
+
 # A helper function that lets you log information to the console
 # with some timing information. I found this super useful to 
 # debug tricky event-based problems.
 #
 def log (message):
     print time.strftime("[%H:%M:%S]",time.localtime()),message
+

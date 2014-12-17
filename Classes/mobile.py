@@ -15,6 +15,8 @@ class Mobile (Thing):
         # fg.draw(self._screen._window)
         self.sprite().move(((VIEWPORT_WIDTH+1)-(self._x-(self._screen._cx-(VIEWPORT_WIDTH-1)/2)))*TILE_SIZE,
                            ((1+1.5*len(player._inventory)-(self._y-(self._screen._cy-(VIEWPORT_HEIGHT-1)/2)))*TILE_SIZE))
+        m = self.name() + ', ' + self.description()
+        self.com(m)
 
     def use (self,player):
         self._screen.delete(self)

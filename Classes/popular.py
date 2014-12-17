@@ -27,16 +27,16 @@ class Popular (NPC):
     def talk (self):
         for thing in self._p._inventory:
             if thing.is_drug():
-                print "I'll take that coke! Thanks!"
+                self.com("I'll take that coke! Thanks!")
                 self._p._confidence = self._p._confidence + 2
                 self._p.update_confidence()
                 thing.use(self._p)
                 self._p._inventory.remove(thing)
                 return
         if self._p._confidence <5:
-            print "I don't talk to losers"
+            self.com("I don't talk to losers")
         elif self._p._confidence >= 5 and self._p._confidence < 10:
-            print "You're alright I guess"
+            self.com("You're alright I guess")
         else:
-            print "Of course I'll go to prom with you!"
+            self.com("Of course I'll go to prom with you!")
             self._p._screen.win()
