@@ -23,3 +23,18 @@ class Popular (NPC):
     def strut (self):
         # TODO: More interesting things
         pass
+
+    def talk (self,player):
+        for thing in player._inventory:
+            if thing.is_drug():
+                print "I'll take that coke! Thanks!"
+                player._confidence = player._confidence + 2
+                thing.use(player)
+                return
+        if player._confidence <5:
+            print "I don't talk to losers"
+        elif player._confidence >= 5 and player._confidence < 10:
+            print "You're alright I guess"
+        else:
+            print "Of course I'll go to prom with you!"
+            player._screen.win()

@@ -10,3 +10,6 @@ class Drug (Mobile):
 	def use (self):
 		# TODO: Get high
 		pass
+
+	def is_drug(self):
+		return True

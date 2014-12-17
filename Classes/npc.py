@@ -21,7 +21,10 @@ class NPC (Character):
         return self
 
     def event (self,q):
-        log("event for "+str(self))
+        # log("event for "+str(self))
         x,y = random.choice(MOVES)
         self.move(x,y)
         q.enqueue(NPC_DELAY,self)
+
+    def talk (self,player):
+        log("Hello from" + str(self))

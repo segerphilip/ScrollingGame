@@ -26,3 +26,6 @@ class Mobile (Thing):
 
     def is_mobile_thing (self):
         return True
+
+    def is_drug (self):
+        return False

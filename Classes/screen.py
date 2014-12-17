@@ -68,14 +68,16 @@ class Screen (object):
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
                     elt = Image(Point(sx,sy),'Resources/tiles.gif')
-                if self.tile(x,y) == 1:
+                elif self.tile(x,y) == 1:
                     elt = Image(Point(sx,sy),'Resources/wall.gif')
-                if self.tile(x,y) == 2:
+                elif self.tile(x,y) == 2:
                     elt = Image(Point(sx,sy),'Resources/lockers.gif')
-                if self.tile(x,y) == 3:
+                elif self.tile(x,y) == 3:
                     elt = Image(Point(sx,sy),'Resources/door.gif')
-                if self.tile(x,y) == 4:
+                elif self.tile(x,y) == 4:
                     elt = Image(Point(sx,sy),'Resources/stairs.gif')
+                elif self.tile(x,y) == 5:
+                    elt = Image(Point(sx,sy),'Resources/grass.gif')
                 elt.draw(window)
 
     # return the tile at a given tile position
@@ -110,14 +112,16 @@ class Screen (object):
                                 Point(sx+TILE_SIZE,sy+TILE_SIZE))
                 if self.tile(x,y) == 0:
                     elt = Image(Point(sx,sy),'Resources/tiles.gif')
-                if self.tile(x,y) == 1:
+                elif self.tile(x,y) == 1:
                     elt = Image(Point(sx,sy),'Resources/wall.gif')
-                if self.tile(x,y) == 2:
+                elif self.tile(x,y) == 2:
                     elt = Image(Point(sx,sy),'Resources/lockers.gif')
-                if self.tile(x,y) == 3:
+                elif self.tile(x,y) == 3:
                     elt = Image(Point(sx,sy),'Resources/door.gif')
-                if self.tile(x,y) == 4:
+                elif self.tile(x,y) == 4:
                     elt = Image(Point(sx,sy),'Resources/stairs.gif')
+                elif self.tile(x,y) == 5:
+                    elt = Image(Point(sx,sy),'Resources/grass.gif')
                 Thing.materialize
                 elt.draw(self._window)
         print self._corner
@@ -134,3 +138,8 @@ class Screen (object):
     def delete (self,thing):
         self._window.delItem(thing._sprite)
         self._things = [x for x in self._things if x is not thing]
+
+    def win (self):
+        print "HOORAY"
+        self._window.close()
+        exit(0)
