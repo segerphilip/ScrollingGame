@@ -92,6 +92,13 @@ class Player (Character):
                 if t.is_character():
                     t.talk(self)
 
+    def update_confidence (self):
+        if self._confidence <= 10:
+            fg = Rectangle(Point(WINDOW_WIDTH+5,50),
+                           Point(WINDOW_WIDTH+self._confidence*19,75))
+            fg.setFill("red")
+            fg.draw(self._screen._window)
+
     def inventory (self):
         return self._inventory
 

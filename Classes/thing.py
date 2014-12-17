@@ -71,6 +71,9 @@ class Thing (Root):
     def is_thing (self):
         return True
 
+    def is_mobile_thing(self):
+        return False
+
     def is_walkable (self):
         return False
 

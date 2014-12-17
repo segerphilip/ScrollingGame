@@ -5,7 +5,7 @@ MOVES = [(1,0), (-1,0),
          (0,1), (0,-1),
          (0,0)]
 
-NPC_DELAY = 30
+NPC_DELAY = 90
 
 class NPC (Character):
     def __init__ (self,name,desc):

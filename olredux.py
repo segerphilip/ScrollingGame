@@ -46,16 +46,23 @@ MOVE = {
 }
 
 def create_panel (window):
+    # Sidebar
     fg = Rectangle(Point(WINDOW_WIDTH+1,-20),
                    Point(WINDOW_WIDTH+WINDOW_RIGHTPANEL+20,WINDOW_HEIGHT+20))
     fg.setFill("darkgray")
     fg.setOutline("darkgray")
     fg.draw(window)
+    # confidence text
     fg = Text(Point(WINDOW_WIDTH+90,
-                    25),"Prompocolypse")
-    fg.setSize(24)
-    fg.setStyle("italic")
-    fg.setFill("red")
+                25),"Confidence")
+    fg.setSize(20)
+    fg.setFill("black")
+    fg.draw(window)
+    # confidence bar
+    fg = Rectangle(Point(WINDOW_WIDTH+5,50),
+                   Point(WINDOW_WIDTH+195,75))
+    fg.setFill("grey")
+    fg.setOutline("black")
     fg.draw(window)
 
 def main ():
@@ -72,8 +79,8 @@ def main ():
     q = EventQueue()
 
     # ChemTable().materialize(scr,20,20)
-    NPC("Pinky","A rat").register(q,40).materialize(scr,30,30)
-    NPC("Brain","A rat with a big head").register(q,60).materialize(scr,10,30)
+    Popular("Pinky","A rat").register(q,40).materialize(scr,30,30)
+    Popular("Brain","A rat with a big head").register(q,60).materialize(scr,10,30)
 
     create_panel(window)
 
