@@ -124,7 +124,7 @@ class Screen (object):
                     elt = Image(Point(sx,sy),'Resources/grass.gif')
                 Thing.materialize
                 elt.draw(self._window)
-        print self._corner
+        # print self._corner
 
     def redraw (self):
         dx = (VIEWPORT_WIDTH-1)/2
@@ -137,6 +137,7 @@ class Screen (object):
 
     def delete (self,thing):
         self._window.delItem(thing._sprite)
+        self._window.redraw()
         self._things = [x for x in self._things if x is not thing]
 
     def win (self):

@@ -6,18 +6,15 @@ class Mobile (Thing):
         Thing.__init__(self,name,desc)
 
     def take (self,player):
-        fg = Rectangle(Point(WINDOW_WIDTH+5,100),
-                   Point(WINDOW_WIDTH+195,125))
-        fg.setFill("grey")
-        fg.setOutline("black")
-        fg.draw(self._screen._window)
-
-
         player._inventory.append(self)
         self._screen._things.remove(self)
-        # self._sprite.move(LEVEL_WIDTH-(self._x*TILE_SIZE),LEVEL_HEIGHT-(self._y*TILE_SIZE))
-        self._x = VIEWPORT_WIDTH+15
-        self._y = len(player._inventory) + 15
+
+        # fg = Rectangle(Point(WINDOW_WIDTH+TILE_SIZE,TILE_SIZE*(1+1.5*len(player._inventory))),
+        #                    Point(WINDOW_WIDTH+2*TILE_SIZE,TILE_SIZE*(1+1.5*len(player._inventory)) + TILE_SIZE))
+        # fg.setFill("black")
+        # fg.draw(self._screen._window)
+        self.sprite().move(((VIEWPORT_WIDTH+1)-(self._x-(self._screen._cx-(VIEWPORT_WIDTH-1)/2)))*TILE_SIZE,
+                           ((1+1.5*len(player._inventory)-(self._y-(self._screen._cy-(VIEWPORT_HEIGHT-1)/2)))*TILE_SIZE))
 
     def use (self,player):
         self._screen.delete(self)
