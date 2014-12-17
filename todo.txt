@@ -1,13 +1,10 @@
 specific things todo (12/13/14):
-1.only redraw things that are in veiwport
 2.determine correct way to draw into inventory
 	correctly undraw and redraw
-3.reduce lag
 4.set up talking with NPC
 	print talking
 5.win screen
 	prom dance
-
 
 
 Things:
