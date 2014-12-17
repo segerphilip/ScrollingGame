@@ -98,7 +98,7 @@ class Player (Character):
                            Point(WINDOW_WIDTH+self._confidence*19,75))
             fg.setFill("red")
             fg.draw(self._screen._window)
-            m = 'Lookie you have reached level ' + self._confidence + "!"
+            m = 'Lookie you have reached level ' + str(self._confidence) + "!"
             self.com(m)
     def inventory (self):
         return self._inventory
