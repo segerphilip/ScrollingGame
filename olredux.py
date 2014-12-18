@@ -101,7 +101,7 @@ def main ():
     Popular("Chelsea","a super\npopular kid",p).register(q,40).materialize(scr,40,12)
     Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,60).materialize(scr,15,18)
     Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,60).materialize(scr,12,32)
-    Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
+    Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,45,25)
 
     Guitar('Guitar','how to\nwoo anyone').materialize(scr,21,34)
 
