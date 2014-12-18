@@ -2,8 +2,8 @@ from thing import *
 import time
 
 class BenchPress (Thing):
-    def __init__ (self):
-        Thing.__init__(self,"BenchPress","Get swoll")
+    def __init__ (self,name,desc):
+        Thing.__init__(self,name,desc)
         self._pic = 'Resources/benchpress.gif'
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._skill = 1
