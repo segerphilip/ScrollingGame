@@ -31,3 +31,6 @@ class Character (Thing):
 
     def is_walkable (self):
         return False
+
+    def is_principal (self):
+        return False
