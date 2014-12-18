@@ -81,8 +81,9 @@ def main ():
     # testing locations
     p = Player("P-Dawg").materialize(scr,25,25)
 
-    Popular("Pinky","a super\npopular kid",p).register(q,40).materialize(scr,25,23)
-    Popular("Brain","a popular\nkid with a big\nhead",p).register(q,60).materialize(scr,25,24)
+    Popular("Chelsea","a super\npopular kid",p).register(q,40).materialize(scr,25,23)
+    Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/Jeff.gif').register(q,60).materialize(scr,25,24)
+    Student("Tom","a popular\nkid with a big\nhead",p,'Resources/Tom.gif').register(q,60).materialize(scr,25,24)
     Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
 
     Guitar('Guitar','how to\nwoo anyone').materialize(scr,24,22)

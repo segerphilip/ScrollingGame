@@ -25,7 +25,7 @@ class NPC (Character):
         self.move(x,y)
         q.enqueue(NPC_DELAY,self)
 
-    def talk (self,player):
+    def talk (self):
         self.com('Hello from' + str(self))
 
     def move (self, dx, dy):
