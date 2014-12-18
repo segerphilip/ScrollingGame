@@ -136,6 +136,5 @@ class Screen (object):
         self._things = [x for x in self._things if x is not thing]
 
     def win (self):
-        self.com('HOORAY\nYOU WIN!!!')
-        self._window.close()
-        exit(0)
+        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT),'Resources/win.gif')
+        w.draw(self._window)
