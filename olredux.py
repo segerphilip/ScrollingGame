@@ -87,6 +87,7 @@ def main ():
     Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
 
     Guitar('Guitar','how to\nwoo anyone').materialize(scr,25,24)
+    Extinguisher('Extinguisher','helps put\nout fires').materialize(scr,21,24)
 
     c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,24,23)
     c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,24,24)

@@ -40,11 +40,11 @@ class Principal (NPC):
         return True
 
     def update_anger(self):
-        if anger = 4:
+        if self._anger == 4:
             self._screen.lose()
-        elif anger = 3:
+        elif self._anger == 3:
             self._pic = self._pics[2]
-        elif anger = 2:
+        elif self._anger == 2:
             self._pic = self._pics[1]
-        elif anger = 1:
+        elif self._anger == 1:
             self._pic = self._pics[0]
