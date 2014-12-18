@@ -54,7 +54,6 @@ class Screen (object):
         bg.draw(window)
         dx = (VIEWPORT_WIDTH-1)/2
         dy = (VIEWPORT_HEIGHT-1)/2
-        self._corner = (self._cx-dx,self._cy-dy)
         for y in range(cy-dy,cy+dy+1):
             for x in range(cx-dx,cx+dx+1):
                 sx = (x-(cx-dx) + .5) * TILE_SIZE
@@ -98,7 +97,6 @@ class Screen (object):
         self._cy = self._cy + py
         dx = (VIEWPORT_WIDTH-1)/2
         dy = (VIEWPORT_HEIGHT-1)/2
-        self._corner = (self._cx-dx,self._cy-dy)
         for y in range(self._cy-dy,self._cy+dy+1):
             for x in range(self._cx-dx,self._cx+dx+1):
                 sx = (x-(self._cx-dx) + .5) * TILE_SIZE

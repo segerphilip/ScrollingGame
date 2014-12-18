@@ -41,6 +41,7 @@ class Player (Character):
                     self._screen.scroll(dx,dy)
                     self._screen.redraw()
                 if (tx < 11 or tx > 40) and (ty < 11 or ty > 40):
+                    self._screen.scroll(0,0)
                     self._screen.redraw()
                 elif (tx < 11 or tx > 40) and dy != 0:
                     self._screen.scroll(dx,dy)
