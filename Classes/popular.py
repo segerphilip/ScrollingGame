@@ -15,14 +15,6 @@ class Popular (NPC):
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._direction = random.randrange(4)
 
-    def compare (self,player):
-        # TODO: judge player confidence level
-        pass
-
-    def strut (self):
-        # TODO: More interesting things
-        pass
-
     def talk (self):
         for thing in self._p._inventory:
             if thing.is_drug():
