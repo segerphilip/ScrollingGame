@@ -15,9 +15,6 @@ class Principal (NPC):
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._direction = -1
 
-    def prowl (self):
-        self.com('Get back to\nclass!!!')
-
     def move (self, dx, dy):
         if self._y == 10:
             self._direction = 1

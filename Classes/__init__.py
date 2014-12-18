@@ -17,5 +17,4 @@ from extinguisher import *
 from popular import *
 from student import *
 from principal import *
-from teacher import *
 from drug import *
