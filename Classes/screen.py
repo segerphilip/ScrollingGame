@@ -134,5 +134,19 @@ class Screen (object):
         self._things = [x for x in self._things if x is not thing]
 
     def win (self):
-        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT),'Resources/win.gif')
+        fg = Rectangle(Point(0,0),
+                   Point(WINDOW_WIDTH+WINDOW_RIGHTPANEL,WINDOW_HEIGHT))
+        fg.setFill("black")
+        fg.setOutline("black")
+        fg.draw(self._window)
+        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT/2),'Resources/win.gif')
+        w.draw(self._window)
+
+    def lose (self):
+        fg = Rectangle(Point(0,0),
+                   Point(WINDOW_WIDTH+WINDOW_RIGHTPANEL,WINDOW_HEIGHT))
+        fg.setFill("black")
+        fg.setOutline("black")
+        fg.draw(self._window)
+        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT/2),'Resources/lose.gif')
         w.draw(self._window)
