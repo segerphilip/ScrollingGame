@@ -79,41 +79,41 @@ def main ():
     create_panel(window)
 
     # testing locations
-    p = Player("P-Dawg").materialize(scr,25,25)
-
-    Popular("Chelsea","a super\npopular kid",p).register(q,40).materialize(scr,25,23)
-    Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,60).materialize(scr,27,24)
-    Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,60).materialize(scr,26,24)
-    Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
-
-    Guitar('Guitar','how to\nwoo anyone').materialize(scr,25,24)
-    Extinguisher('Extinguisher','helps put\nout fires').materialize(scr,21,24)
-
-    c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,24,23)
-    c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,24,24)
-    c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,24,25)
-
-    chems = [c1,c2,c3]
-    ChemTable(chems).materialize(scr,27,30)
-
-    # proper locations
     # p = Player("P-Dawg").materialize(scr,25,25)
 
-    # Popular("Chelsea","a super\npopular kid",p).register(q,80).materialize(scr,40,12)
-    # Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,120).materialize(scr,15,18)
-    # Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,120).materialize(scr,12,32)
-    # Principal("Mr. Pucella","he looks mad!",p).register(q,60).materialize(scr,25,44)
+    # Popular("Chelsea","a super\npopular kid",p).register(q,40).materialize(scr,25,23)
+    # Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,60).materialize(scr,27,24)
+    # Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,60).materialize(scr,26,24)
+    # Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
 
-    # Guitar('Guitar','how to\nwoo anyone').materialize(scr,21,34)
+    # Guitar('Guitar','how to\nwoo anyone').materialize(scr,25,24)
+    # Extinguisher('Extinguisher','helps put\nout fires').materialize(scr,21,24)
 
-    # BenchPress('Benchpress','get swoll').materialize(scr,43,8)
-
-    # c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,43,13)
-    # c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,19,22)
-    # c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,44,20)
+    # c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,24,23)
+    # c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,24,24)
+    # c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,24,25)
 
     # chems = [c1,c2,c3]
-    # ChemTable(chems).materialize(scr,44,27)
+    # ChemTable(chems).materialize(scr,27,30)
+
+    # proper locations
+    p = Player("P-Dawg").materialize(scr,25,25)
+
+    Popular("Chelsea","a super\npopular kid",p).register(q,80).materialize(scr,40,12)
+    Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,120).materialize(scr,15,18)
+    Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,120).materialize(scr,12,32)
+    Principal("Mr. Pucella","he looks mad!",p).register(q,60).materialize(scr,25,44)
+
+    Guitar('Guitar','how to\nwoo anyone').materialize(scr,21,34)
+    Extinguisher('Extinguisher','helps put\nout fires').materialize(scr,21,24)
+    BenchPress('Benchpress','get swoll').materialize(scr,43,8)
+
+    c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,43,13)
+    c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,19,22)
+    c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,44,20)
+
+    chems = [c1,c2,c3]
+    ChemTable(chems).materialize(scr,44,27)
 
     q.enqueue(1,CheckInput(window,p))
 
