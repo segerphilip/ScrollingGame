@@ -72,9 +72,6 @@ class Player (Character):
                 self._screen1 = self._screen
                 self._screen = self._screen2
                 self._screen._window.redraw()
-                # self._screen.delete(self)
-                # self._screen.add(self,self._x,self._y)
-                # populate with objects/people
             else:
                 if self._leveled:
                     self._screen = self._screen1

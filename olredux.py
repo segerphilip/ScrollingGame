@@ -82,6 +82,7 @@ def main ():
 
     p = Player("P-Dawg").materialize(scr,25,25)
 
+    Principal("Mr. Pucella","He looks mad!").register(q,30).materialize(scr,30,10)
     Popular("Pinky","A rat",p).register(q,40).materialize(scr,30,30)
     Popular("Brain","A rat with a big head",p).register(q,60).materialize(scr,10,30)
 
