@@ -79,6 +79,22 @@ def main ():
     create_panel(window)
 
     # testing locations
+    # p = Player("P-Dawg").materialize(scr,25,25)
+
+    # Popular("Pinky","a super\npopular kid",p).register(q,40).materialize(scr,25,23)
+    # Popular("Brain","a popular\nkid with a big\nhead",p).register(q,60).materialize(scr,25,24)
+    # Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
+
+    # Guitar('Guitar','how to\nwoo anyone').materialize(scr,24,22)
+
+    # c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,24,23)
+    # c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,24,24)
+    # c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,24,25)
+
+    # chems = [c1,c2,c3]
+    # ChemTable(chems).materialize(scr,27,30)
+
+    # proper locations
     p = Player("P-Dawg").materialize(scr,25,25)
 
     Popular("Chelsea","a super\npopular kid",p).register(q,40).materialize(scr,25,23)
@@ -94,22 +110,6 @@ def main ():
 
     chems = [c1,c2,c3]
     ChemTable(chems).materialize(scr,27,30)
-
-    # proper locations
-    # p = Player("P-Dawg").materialize(scr,25,25)
-
-    # Popular("Pinky","a super\npopular kid",p).register(q,40).materialize(scr,28,25)
-    # Popular("Brain","a popular\nkid with a big\nhead",p).register(q,60).materialize(scr,25,24)
-    # Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,26,26)
-
-    # Guitar('Guitar','how to\nwoo anyone').materialize(scr,23,22)
-
-    # c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,23,23)
-    # c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,23,24)
-    # c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,23,25)
-
-    # chems = [c1,c2,c3]
-    # ChemTable(chems).materialize(scr,28,30)
 
     q.enqueue(1,CheckInput(window,p))
 

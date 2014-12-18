@@ -1,21 +1,5 @@
-specific things todo (12/13/14):
-2.determine correct way to draw into inventory
-	correctly undraw and redraw
-4.set up talking with NPC
-	print talking
 5.win screen
 	prom dance
-
-
-Things:
-guitar
-	mobile thing
-	learn
-	play it for people
-
-
-
-
 
 benchpress
 	not mobile
@@ -27,14 +11,5 @@ fire extinguisher
 	spray principal (gain confidence)
 
 Characters:
-Player
-Pop girl
-Pop guy
 Principal
-Professor - random movement in classroom
 Random students
-
-Controls:
-arrow(wasd) move
-enter/space = select
-shift = drop
