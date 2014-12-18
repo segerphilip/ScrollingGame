@@ -29,7 +29,7 @@ class CheckInput (object):
         if key == 'space':
             self._player.interact()
         if key in INV and len(self._player._inventory) != 0:
-            self._player._inventory[INV[key]].use()
+            self._player._inventory[INV[key]].use(self._player)
         if key in MOVE:
             (dx,dy) = MOVE[key]
             self._player.move(dx,dy)

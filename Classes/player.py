@@ -21,13 +21,6 @@ class Player (Character):
     def is_player (self):
         return True
 
-    # The move() method of the Player is called when you 
-    # press movement keys. 
-    # It is different enough from movement by the other
-    # characters that you'll probably need to overwrite it.
-    # In particular, when the Player move, the screen scrolls,
-    # something that does not happen for other characters
-
     def move (self,dx,dy):
         if self._ind != 3:
             self._ind += 1
@@ -72,9 +65,6 @@ class Player (Character):
                 self._screen1 = self._screen
                 self._screen = self._screen2
                 self._screen._window.redraw()
-                # self._screen.delete(self)
-                # self._screen.add(self,self._x,self._y)
-                # populate with objects/people
             else:
                 if self._leveled:
                     self._screen = self._screen1
@@ -93,13 +83,21 @@ class Player (Character):
                     t.talk()
 
     def update_confidence (self):
-        if self._confidence <= 10:
+        if self._confidence < 10:
             fg = Rectangle(Point(WINDOW_WIDTH+5,50),
                            Point(WINDOW_WIDTH+self._confidence*19,75))
             fg.setFill("red")
             fg.draw(self._screen._window)
-            m = 'Lookie you have reached level ' + str(self._confidence) + "!"
+            m = 'Lookie!\nYou have reached\nlevel ' + str(self._confidence) + "!"
             self.com(m)
+        elif self._confidence >= 10:
+            fg = Rectangle(Point(WINDOW_WIDTH+5,50),
+                           Point(WINDOW_WIDTH+195,75))
+            fg.setFill("red")
+            fg.draw(self._screen._window)
+            m = 'You have 100%\nconfidence!'
+            self.com(m)
+
     def inventory (self):
         return self._inventory
 
