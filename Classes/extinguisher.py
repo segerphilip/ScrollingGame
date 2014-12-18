@@ -13,6 +13,7 @@ class Extinguisher (Mobile):
                 if t.is_character():
                 	if t.is_principal:
                 		t._anger = t._anger + 1
+                		t.update_anger()
                 		t.com('How dare you!')
                     	player._confidence = player._confidence + 0.5
                     	player.update_confidence()

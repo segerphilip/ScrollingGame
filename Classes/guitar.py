@@ -19,8 +19,15 @@ class Guitar (Mobile):
         for t in self._screen._things:
             if ((t._x == player._x + 1 or t._x == player._x - 1) and t._y == player._y) or ((t._y == player._y + 1 or t._y == player._y - 1) and t._x == player._x):
                 if t.is_character():
-                    player._confidence = player._confidence + 0.5
-                    player.update_confidence()
+                    if t.is_principal():
+                        t._anger = t._anger + 1
+                        t.update_anger()
+                        t.com('Stop goofing off!')
+                        player._confidence = player._confidence + 0.5
+                        player.update_confidence()
+                    else:
+                        player._confidence = player._confidence + 0.5
+                        player.update_confidence()
 
     def learn (self):
         self._skill += 1

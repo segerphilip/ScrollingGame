@@ -12,8 +12,10 @@ class Principal (NPC):
     def __init__ (self,name,desc,player):
         NPC.__init__(self,name,desc,player)
         self._pic = 'Resources/principal.gif'
+        self._pics = ['Resources/ang1.gif','Resources/ang2.gif','Resources/ang3.gif']
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._direction = -1
+        self._anger = 0
 
     def move (self, dx, dy):
         if self._y == 10:
@@ -33,3 +35,16 @@ class Principal (NPC):
                     self._y = ty
                     self._sprite.move(0,dy*TILE_SIZE)
         self._screen._window.update()
+
+    def is_principal (self):
+        return True
+
+    def update_anger(self):
+        if anger = 4:
+            self._screen.lose()
+        elif anger = 3:
+            self._pic = self._pics[2]
+        elif anger = 2:
+            self._pic = self._pics[1]
+        elif anger = 1:
+            self._pic = self._pics[0]

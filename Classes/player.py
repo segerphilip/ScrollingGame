@@ -67,8 +67,6 @@ class Player (Character):
                            Point(WINDOW_WIDTH+self._confidence*19,75))
             fg.setFill("red")
             fg.draw(self._screen._window)
-            m = 'Lookie!\nYou have reached\nlevel ' + str(self._confidence) + "!"
-            self.com(m)
         elif self._confidence >= 10:
             fg = Rectangle(Point(WINDOW_WIDTH+5,50),
                            Point(WINDOW_WIDTH+195,75))
