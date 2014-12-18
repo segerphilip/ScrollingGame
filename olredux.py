@@ -82,6 +82,7 @@ def main ():
 
     Popular("Pinky","a super\npopular kid",p).register(q,40).materialize(scr,30,30)
     Popular("Brain","a popular\nkid with a big\nhead",p).register(q,60).materialize(scr,10,30)
+    Principal("Mr. Pucella","he looks mad!").register(q,30).materialize(scr,30,10)
 
     Guitar('Guitar','how to\nwoo anyone').materialize(scr,22,22)
 
