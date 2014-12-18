@@ -54,7 +54,6 @@ class Screen (object):
         bg.draw(window)
         dx = (VIEWPORT_WIDTH-1)/2
         dy = (VIEWPORT_HEIGHT-1)/2
-        self._corner = (self._cx-dx,self._cy-dy)
         for y in range(cy-dy,cy+dy+1):
             for x in range(cx-dx,cx+dx+1):
                 sx = (x-(cx-dx) + .5) * TILE_SIZE
@@ -98,7 +97,6 @@ class Screen (object):
         self._cy = self._cy + py
         dx = (VIEWPORT_WIDTH-1)/2
         dy = (VIEWPORT_HEIGHT-1)/2
-        self._corner = (self._cx-dx,self._cy-dy)
         for y in range(self._cy-dy,self._cy+dy+1):
             for x in range(self._cx-dx,self._cx+dx+1):
                 sx = (x-(self._cx-dx) + .5) * TILE_SIZE
@@ -136,5 +134,19 @@ class Screen (object):
         self._things = [x for x in self._things if x is not thing]
 
     def win (self):
-        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT),'Resources/win.gif')
+        fg = Rectangle(Point(0,0),
+                   Point(WINDOW_WIDTH+WINDOW_RIGHTPANEL,WINDOW_HEIGHT))
+        fg.setFill("black")
+        fg.setOutline("black")
+        fg.draw(self._window)
+        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT/2),'Resources/win.gif')
+        w.draw(self._window)
+
+    def lose (self):
+        fg = Rectangle(Point(0,0),
+                   Point(WINDOW_WIDTH+WINDOW_RIGHTPANEL,WINDOW_HEIGHT))
+        fg.setFill("black")
+        fg.setOutline("black")
+        fg.draw(self._window)
+        w=Image(Point((WINDOW_WIDTH+WINDOW_RIGHTPANEL)/2,WINDOW_HEIGHT/2),'Resources/lose.gif')
         w.draw(self._window)
