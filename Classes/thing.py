@@ -76,12 +76,18 @@ class Thing (Root):
     def is_walkable (self):
         return False
 
+    def is_character (self):
+        return False
+
     def com (self,message):
         fg = Rectangle(Point(WINDOW_WIDTH+5,WINDOW_HEIGHT-95),
                                Point(WINDOW_WIDTH+195,WINDOW_HEIGHT-5))
         fg.setFill("white")
         fg.draw(self._screen._window)
 
+
+        if self.is_character():
+            message = self.name()+': \n' + message
         fg = Text(Point(WINDOW_WIDTH+90,
                     WINDOW_HEIGHT-40),message)
         fg.setSize(12)
