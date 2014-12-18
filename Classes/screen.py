@@ -1,5 +1,6 @@
 from graphics import *
 from thing import *
+import time
 
 # Tile size of the level
 LEVEL_WIDTH = 50
