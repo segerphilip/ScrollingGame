@@ -32,8 +32,6 @@ class Guitar (Mobile):
     def learn (self):
         self._skill += 1
         if self._skill < 5:
-            self.com('Practicing,\nplease wait.')
-            time.sleep(1)
             self.com('You learned some! You\nnow know ' + str(self._skill) + ' out of 5.')
         else:
             self.com('You know how\nto play guitar!')
