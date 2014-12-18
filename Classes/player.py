@@ -30,7 +30,7 @@ class Player (Character):
         tx = self._x + dx
         ty = self._y + dy
         if tx > 1 and ty > 1 and tx < LEVEL_WIDTH and ty < LEVEL_HEIGHT:
-            if self._screen.tile(tx,ty) != 2 and self._screen.tile(tx,ty) != 1:
+            if self._screen.tile(tx,ty) != 2 and self._screen.tile(tx,ty) != 1 and self._screen.tile(tx,ty) != 4:
                 for thing in self._screen._things:
                     if thing._x == tx and thing._y == ty and not thing.is_walkable():
                         return

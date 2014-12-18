@@ -114,7 +114,7 @@ class Screen (object):
                 elif self.tile(x,y) == 3:
                     elt = Image(Point(sx,sy),'Resources/door.gif')
                 elif self.tile(x,y) == 4:
-                    elt = Image(Point(sx,sy),'Resources/stairs.gif')
+                    elt = Image(Point(sx,sy),'Resources/desk.gif')
                 elif self.tile(x,y) == 5:
                     elt = Image(Point(sx,sy),'Resources/grass.gif')
                 Thing.materialize
