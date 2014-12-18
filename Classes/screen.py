@@ -45,18 +45,13 @@ class Screen (object):
     def __init__ (self,level,window,cx,cy):
         self._level = level
         self._window = window
-        self._cx = cx    # the initial center tile position 
-        self._cy = cy    #  of the screen
+        self._cx = cx 
+        self._cy = cy
         self._things = []
-        # Background is black
         bg = Rectangle(Point(-20,-20),Point(WINDOW_WIDTH+20,WINDOW_HEIGHT+20))
         bg.setFill("black")
         bg.setOutline("black")
         bg.draw(window)
-        # here, you want to draw the tiles that are visible
-        # and possible record them for future manipulation
-        # you'll probably want to change this at some point to
-        # get scrolling to work right...
         dx = (VIEWPORT_WIDTH-1)/2
         dy = (VIEWPORT_HEIGHT-1)/2
         self._corner = (self._cx-dx,self._cy-dy)
@@ -141,6 +136,6 @@ class Screen (object):
         self._things = [x for x in self._things if x is not thing]
 
     def win (self):
-        print "HOORAY"
+        self.com('HOORAY\nYOU WIN!!!')
         self._window.close()
         exit(0)

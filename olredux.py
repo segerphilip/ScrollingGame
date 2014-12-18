@@ -71,10 +71,8 @@ def main ():
                       autoflush=False)
 
     level = Level(0)
-    log ("level created")
 
     scr = Screen(level,window,25,25)
-    log ("screen created")
 
     q = EventQueue()
 
@@ -82,14 +80,14 @@ def main ():
 
     p = Player("P-Dawg").materialize(scr,25,25)
 
-    Popular("Pinky","A rat",p).register(q,40).materialize(scr,30,30)
-    Popular("Brain","A rat with a big head",p).register(q,60).materialize(scr,10,30)
+    Popular("Pinky","a super\npopular kid",p).register(q,40).materialize(scr,30,30)
+    Popular("Brain","a popular\nkid with a big\nhead",p).register(q,60).materialize(scr,10,30)
 
-    Guitar('guitar','this is guitar').materialize(scr,22,22)
+    Guitar('Guitar','how to\nwoo anyone').materialize(scr,22,22)
 
-    c1 = Chemical('chem1','smells funny','Resources/chem1.gif').materialize(scr,23,23)
-    c2 = Chemical('chem2','smells funny','Resources/chem2.gif').materialize(scr,23,24)
-    c3 = Chemical('chem3','smells funny','Resources/chem3.gif').materialize(scr,23,25)
+    c1 = Chemical('Aspestos','\nmmh, toasty','Resources/chem1.gif').materialize(scr,23,23)
+    c2 = Chemical('Cyanide','probably\n not edible','Resources/chem2.gif').materialize(scr,23,24)
+    c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,23,25)
 
     chems = [c1,c2,c3]
     ChemTable(chems).materialize(scr,30,30)
@@ -100,7 +98,7 @@ def main ():
         # Grab the next event from the queue if it's ready
         q.dequeue_if_ready()
         # Time unit = 10 milliseconds
-        time.sleep(0.01)
+        time.sleep(0.1)
         
 if __name__ == '__main__':
     main()

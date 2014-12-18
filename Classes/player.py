@@ -7,8 +7,7 @@ from level import *
 #
 class Player (Character):
     def __init__ (self,name):
-        Character.__init__(self,name,"Yours truly")
-        log("Player.__init__ for "+str(self))
+        Character.__init__(self,name,"yours truly!")
         self._pics = ['Resources/PhilL.gif', 'Resources/Phil.gif', 'Resources/PhilR.gif', 'Resources/Phil.gif']
         self._ind = 1
         self._pic = self._pics[self._ind]
@@ -38,9 +37,6 @@ class Player (Character):
                 self._x = tx
                 self._y = ty
                 self._sprite.move(dx*TILE_SIZE,dy*TILE_SIZE)
-                # self._screen._window.delItem(self._sprite)
-                # self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
-                # self._screen.add(self,self._x,self._y)
                 if tx > 11 and tx < 40 and ty > 11 and ty < 40:
                     self._screen.scroll(dx,dy)
                     self._screen.redraw()
@@ -55,23 +51,6 @@ class Player (Character):
             self._screen._window.update()
 
     def interact (self):
-        if (self._x > 20 and self._x < 29) and (self._y > 4 and self._y <= 8):
-            if not self._stairs:
-                self._stairs = True
-                self._leveled = True
-                level1 = Level(1)
-                log ("second level created")
-                self._screen2 = Screen(level1,self._screen._window,self._x,11)
-                self._screen1 = self._screen
-                self._screen = self._screen2
-                self._screen._window.redraw()
-            else:
-                if self._leveled:
-                    self._screen = self._screen1
-                    self._leveled = False
-                else:
-                    self._screen = self._screen2
-                    self._leveled = True
         for t in self._screen._things:
             if ((t._x == self._x + 1 or t._x == self._x - 1) and t._y == self._y) or ((t._y == self._y + 1 or t._y == self._y - 1) and t._x == self._x):
                 if t.is_thing():

@@ -10,7 +10,7 @@ class Guitar (Mobile):
         self._skill = 0
 
     def use (self,player):
-        if self._skill < 10:
+        if self._skill < 5:
             self.learn()
         else:
             self.play(player)
@@ -19,13 +19,14 @@ class Guitar (Mobile):
         for t in self._screen._things:
             if ((t._x == player._x + 1 or t._x == player._x - 1) and t._y == player._y) or ((t._y == player._y + 1 or t._y == player._y - 1) and t._x == player._x):
                 if t.is_character():
-                    player._confidence = player._confidence + 1
+                    player._confidence = player._confidence + 0.5
                     player.update_confidence()
 
     def learn (self):
         self._skill += 1
-        if self._skill < 10:
-            time.sleep(2)
-            self.com('You leared some! You\nnow know ' + str(self._skill) + ' out of 10.')
+        if self._skill < 5:
+            self.com('Practicing,\nplease wait.')
+            time.sleep(1)
+            self.com('You leared some! You\nnow know ' + str(self._skill) + ' out of 5.')
         else:
             self.com('You know how\nto play guitar!')

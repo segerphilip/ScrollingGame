@@ -33,13 +33,12 @@ class Thing (Root):
         self._name = name
         self._description = desc
         self._sprite = Text(Point(TILE_SIZE/2,TILE_SIZE/2),"?")
-        log("Thing.__init__ for "+str(self))
 
     def __str__ (self):
         return "<"+self.name()+">"
 
     def use (self):
-        print "This thing cannot be used."
+        self.com('This thing cannot be used.')
 
     # return the sprite for display purposes
     def sprite (self):

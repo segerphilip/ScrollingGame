@@ -10,7 +10,6 @@ NPC_DELAY = 90
 class NPC (Character):
     def __init__ (self,name,desc,player):
         Character.__init__(self,name,desc)
-        log("NPC.__init__ for "+str(self))
         self._pic = 'Resources/NPC.gif'
         self._sprite = Image(Point(TILE_SIZE/2,TILE_SIZE/2),self._pic)
         self._direction = random.randrange(4)
@@ -27,7 +26,7 @@ class NPC (Character):
         q.enqueue(NPC_DELAY,self)
 
     def talk (self,player):
-        log("Hello from" + str(self))
+        self.com('Hello from' + str(self))
 
     def move (self, dx, dy):
         tx = self._x + dx
