@@ -5,7 +5,7 @@ MOVES = [(1,0), (-1,0),
          (0,1), (0,-1),
          (0,0)]
 
-NPC_DELAY = 90
+NPC_DELAY = 180
 
 class NPC (Character):
     def __init__ (self,name,desc,player):
@@ -33,7 +33,7 @@ class NPC (Character):
         ty = self._y + dy
         if tx > 1 and ty > 1 and tx < LEVEL_WIDTH and ty < LEVEL_HEIGHT:
             if (tx < self._p._x+8 or tx > self._p._x+8) and (ty < self._p._y+8 or ty > self._p._y+8):
-                if self._screen.tile(tx,ty) != 2 and self._screen.tile(tx,ty) != 1:
+                if self._screen.tile(tx,ty) != 2 and self._screen.tile(tx,ty) != 1 and self._screen.tile(tx,ty) != 4:
                     for thing in self._screen._things:
                         if thing._x == tx and thing._y == ty and not thing.is_walkable():
                             return
