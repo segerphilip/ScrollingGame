@@ -1,4 +1,5 @@
 from mobile import *
+import time
 
 class Guitar (Mobile):
 
@@ -24,6 +25,7 @@ class Guitar (Mobile):
     def learn (self):
         self._skill += 1
         if self._skill < 10:
+            time.sleep(2)
             self.com('You leared some! You\nnow know ' + str(self._skill) + ' out of 10.')
         else:
             self.com('You know how\nto play guitar!')

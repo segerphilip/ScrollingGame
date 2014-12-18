@@ -1,4 +1,5 @@
 from thing import *
+import time
 
 class BenchPress (Thing):
     def __init__ (self):
@@ -14,3 +15,5 @@ class BenchPress (Thing):
                     player._confidence = player._confidence + 0.5*self._skill
                 else:
                     self._skill += 1
+                    self.com('Muscle +1')
+                    time.sleep(1)
