@@ -98,10 +98,10 @@ def main ():
     # proper locations
     p = Player("P-Dawg").materialize(scr,25,25)
 
-    Popular("Chelsea","a super\npopular kid",p).register(q,40).materialize(scr,40,12)
-    Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,60).materialize(scr,15,18)
-    Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,60).materialize(scr,12,32)
-    Principal("Mr. Pucella","he looks mad!",p).register(q,30).materialize(scr,45,25)
+    Popular("Chelsea","a super\npopular kid",p).register(q,80).materialize(scr,40,12)
+    Student("Jeff","a popular\nkid with a big\nhead",p,'Resources/jeff.gif').register(q,120).materialize(scr,15,18)
+    Student("Tom","a popular\nkid with a big\nhead",p,'Resources/tom.gif').register(q,120).materialize(scr,12,32)
+    Principal("Mr. Pucella","he looks mad!",p).register(q,60).materialize(scr,25,44)
 
     Guitar('Guitar','how to\nwoo anyone').materialize(scr,21,34)
 
@@ -112,7 +112,7 @@ def main ():
     c3 = Chemical('Chemical X','\nsuperpowers?','Resources/chem3.gif').materialize(scr,44,20)
 
     chems = [c1,c2,c3]
-    ChemTable(chems).materialize(scr,46,27)
+    ChemTable(chems).materialize(scr,44,27)
 
     q.enqueue(1,CheckInput(window,p))
 
@@ -120,7 +120,7 @@ def main ():
         # Grab the next event from the queue if it's ready
         q.dequeue_if_ready()
         # Time unit = 10 milliseconds
-        time.sleep(0.1)
+        time.sleep(0.001)
         
 if __name__ == '__main__':
     main()
